@@ -13,7 +13,9 @@ update the number of tickets available for a particular showtime.
 
 ### Design
 
-This applications uses Maven to install `node` and `npm` and build 
+##### Front End (React)
+
+This application uses Maven to install `node` and `npm` and build 
 the React front-end when the developer runs `mvn install`.
 
 This is accomplished by adding the installations of `node` and `npm` and the building of
@@ -21,8 +23,21 @@ the React application to the `build` section of Maven's plugins. While Maven is 
 the proper dependencies, it also installs the dependencies for the React front-end and 
 configures the React front-end to launch with Spring's embedded TomCat server.
 
-It also uses Docker to stand up a MySQL instance for data persistence 
+##### Containers (MySQL, Prometheus, & Grafana)
+
+This application also uses Docker to stand up a MySQL instance for data persistence 
 and Prometheus & Grafana containers for monitoring the application's health.
+
+Inside `docker-compose.yml`, you can see we're establishing a Docker network with a few 
+containers involved in communicating with the container that runs the application. This is 
+similar to deploying all of these containers in the same Pod in Kubernetes.
+
+The MySQL container will lose all data when it spins down, which is why a Kubernetes approach 
+would serve much better for persisting data. 
+
+The Prometheus container is designed to scrape metrics from Spring's Actuator endpoints, and 
+the Grafana container hosts an instance of Grafana with dashboards built on top of the 
+scraped data from Prometheus.
 
 ### Running the Application
 
