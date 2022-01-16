@@ -18,6 +18,8 @@ Uses Maven to install `node` and `npm` and build the React front-end when the de
 It also uses Docker to stand up a MySQL instance for data persistence 
 and Prometheus & Grafana containers for monitoring the application's health.
 
+### Running the Application
+
 To launch this application locally, run `mvn install && mvn spring-boot:run`.
 
 To launch this application with Docker, run `docker-compose` on the `docker-compose.yml` file.
