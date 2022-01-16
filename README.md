@@ -13,7 +13,7 @@ update the number of tickets available for a particular showtime.
 
 ### Design
 
-##### Front End (React)
+#### Front End (React)
 
 This application uses Maven to install `node` and `npm` and build 
 the React front-end when the developer runs `mvn install`.
@@ -23,7 +23,7 @@ the React application to the `build` section of Maven's plugins. While Maven is 
 the proper dependencies, it also installs the dependencies for the React front-end and 
 configures the React front-end to launch with Spring's embedded TomCat server.
 
-##### Containers (MySQL, Prometheus, & Grafana)
+#### Containers (MySQL, Prometheus, & Grafana)
 
 This application also uses Docker to stand up a MySQL instance for data persistence 
 and Prometheus & Grafana containers for monitoring the application's health.
